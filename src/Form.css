@@ -1,0 +1,63 @@
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  .form-box {
+    background-color: rgba(0, 0, 0, 0.2); /* Svart bakgrundsfärg med lite genomskinlighet */
+    border: 2px solid #333; /* Border med lite skugga */
+    border-radius: 8px;
+    padding: 20px;
+    width: 45%;
+  }
+  
+  .input-container {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  .result {
+    margin-top: 15px;
+  }
+  
+  .result p {
+    margin: 5px 0;
+  }
+  
+  .result span {
+    font-weight: bold;
+  }
+  
+  .success {
+    color: green;
+  }
+  
+  .error {
+    color: red;
+  }  
