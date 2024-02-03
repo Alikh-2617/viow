@@ -39,8 +39,8 @@ function RightForm() {
       <button type="submit">Skicka</button>
       {response && (
         <div className={`response ${response.status === 'Error' ? 'error' : 'success'}`}>
-          <p>Status: {response.status}</p>
-          <p>{response.message}</p>
+          <p>Status för din request : {response.status}</p>
+          <p>Svar Meddelandet : {response.message}</p>
         </div>
       )}
     </form>
