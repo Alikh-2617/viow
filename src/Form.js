@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Form.css'; // Importera CSS-filen där vi kommer att definiera våra anpassade stilar
+import './Form.css'; 
 
 function RightForm() {
   const [formData, setFormData] = useState({ Name: '', Text: '', key: '' }); // 
@@ -22,14 +22,19 @@ function RightForm() {
     }
   };
 
+  const handleClear = () => {
+    setFormData({ Name: '', Text: '', key: '' });
+    setResponse(null);
+  };
+
   return (
     <form className="form-box" onSubmit={handleSubmit}>
       <div className="input-container">
-        <label>Name:</label>
+        <label>ID Name :</label>
         <input type="text" value={formData.Name} onChange={(e) => setFormData({ ...formData, Name: e.target.value })} />
       </div>
       <div className="input-container">
-        <label>Plain Text:</label>
+        <label>Plain Text :</label>
         <input type="text" value={formData.Text} onChange={(e) => setFormData({ ...formData, Text: e.target.value })} />
       </div>
       <div className="input-container">
@@ -37,13 +42,16 @@ function RightForm() {
         <input type="number" value={formData.key} onChange={(e) => setFormData({ ...formData, key: e.target.value })} />
       </div>
       <button type="submit">Skicka</button>
+      <dir></dir>
+      <button type="button" onClick={handleClear}>Clear</button>
+ 
       {response && (
         <div className={`response ${response.status === 'Error' ? 'error' : 'success'}`}>
           <p>Status för din request : {response.status}</p>
           <p>Svar Meddelandet : {response.message}</p>
         </div>
       )}
-    </form>
+   </form>
   );
 }
 
@@ -54,7 +62,7 @@ function LeftForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      if (!formData.Name || !formData.Text) {
+      if (!formData.Name) {
         alert('Alla fält är obligatoriska!');
         return;
       }
@@ -66,24 +74,31 @@ function LeftForm() {
       setResponse({ status: 'Error', message: 'Ett fel uppstod ! ' });
     }
   };
-
+  const handleClear = () => {
+    setFormData({ Name: '', Text: '' });
+    setResponse(null);
+  };
   return (
     <form className="form-box" onSubmit={handleSubmit}>
       <div className="input-container">
-        <label>Name:</label>
+        <label>ID Name :</label>
         <input type="text" value={formData.Name} onChange={(e) => setFormData({ ...formData, Name: e.target.value })} />
       </div>
       <div className="input-container">
-        <label>Cypher Text:</label>
+        <label>Cypher Text :</label>
         <input type="text" value={formData.Text} onChange={(e) => setFormData({ ...formData, Text: e.target.value })} />
       </div>
       <button type="submit">Skicka</button>
+      <dir></dir>
+      <button type="button" onClick={handleClear}>Clear</button>
+
       {response && (
         <div className={`response ${response.status === 'Error' ? 'error' : 'success'}`}>
-          <p>Status: {response.status}</p>
-          <p>{response.message}</p>
+          <p>Status för din request : {response.status}</p>
+          <p>Svar Meddelandet : {response.message}</p>
         </div>
       )}
+
     </form>
   );
 }
